@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QAsystem - Trang Quản Trị IT</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>QAsystem Admin</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#dashboard" class="nav-link active" data-section="dashboard">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a></li>
+                    <li><a href="#servers" class="nav-link" data-section="servers">
+                        <i class="fas fa-server"></i>
+                        <span>Quản Lý Server</span>
+                    </a></li>
+                    <li><a href="#users" class="nav-link" data-section="users">
+                        <i class="fas fa-users"></i>
+                        <span>Quản Lý Người Dùng</span>
+                    </a></li>
+                    <li><a href="#systems" class="nav-link" data-section="systems">
+                        <i class="fas fa-cogs"></i>
+                        <span>Hệ Thống</span>
+                    </a></li>
+                    <li><a href="#logs" class="nav-link" data-section="logs">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Nhật Ký Hoạt Động</span>
+                    </a></li>
+                    <li><a href="#backup" class="nav-link" data-section="backup">
+                        <i class="fas fa-database"></i>
+                        <span>Sao Lưu & Phục Hồi</span>
+                    </a></li>
+                    <li><a href="#security" class="nav-link" data-section="security">
+                        <i class="fas fa-lock"></i>
+                        <span>Bảo Mật</span>
+                    </a></li>
+                    <li><a href="#reports" class="nav-link" data-section="reports">
+                        <i class="fas fa-bar-chart"></i>
+                        <span>Báo Cáo</span>
+                    </a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile">
+                    <img src="https://via.placeholder.com/40" alt="Admin">
+                    <div class="profile-info">
+                        <p class="username">Quản Trị Viên</p>
+                        <p class="role">IT Manager</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="sidebar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Tìm kiếm...">
+                    </div>
+                    <button class="header-icon" title="Thông báo">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="header-icon" title="Cài đặt">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button class="logout-btn" title="Đăng Xuất">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="section active">
+                    <div class="section-header">
+                        <h2>Dashboard - Tổng Quan Hệ Thống</h2>
+                        <div class="date-range">
+                            <input type="date" id="startDate">
+                            <span>đến</span>
+                            <input type="date" id="endDate">
+                        </div>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card status-good">
+                            <div class="stat-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Server Hoạt Động</h3>
+                                <p class="stat-value">24/25</p>
+                                <p class="stat-label">96% Uptime</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card status-good">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Người Dùng Đang Hoạt</h3>
+                                <p class="stat-value">247</p>
+                                <p class="stat-label">18 đang online</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card status-warning">
+                            <div class="stat-icon">
+                                <i class="fas fa-hdd"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Dung Lượng Ổ Cứng</h3>
+                                <p class="stat-value">756 GB</p>
+                                <p class="stat-label">75% Sử Dụng</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card status-warning">
+                            <div class="stat-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Cảnh Báo Hệ Thống</h3>
+                                <p class="stat-value">5</p>
+                                <p class="stat-label">2 Nghiêm Trọng</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Section -->
+                    <div class="charts-section">
+                        <div class="chart-container">
+                            <h3>Tải Máy Chủ (CPU %)</h3>
+                            <canvas id="cpuChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Bộ Nhớ Sử Dụng (RAM %)</h3>
+                            <canvas id="ramChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- System Status Table -->
+                    <div class="table-container">
+                        <h3>Trạng Thái Hệ Thống</h3>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Máy Chủ</th>
+                                    <th>IP Address</th>
+                                    <th>Trạng Thái</th>
+                                    <th>CPU</th>
+                                    <th>RAM</th>
+                                    <th>Ổ Cứng</th>
+                                    <th>Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Server 01</strong></td>
+                                    <td>192.168.1.10</td>
+                                    <td><span class="status-badge online">Online</span></td>
+                                    <td>45%</td>
+                                    <td>62%</td>
+                                    <td>78%</td>
+                                    <td><button class="action-btn">Chi Tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Server 02</strong></td>
+                                    <td>192.168.1.11</td>
+                                    <td><span class="status-badge online">Online</span></td>
+                                    <td>32%</td>
+                                    <td>51%</td>
+                                    <td>65%</td>
+                                    <td><button class="action-btn">Chi Tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Server 03</strong></td>
+                                    <td>192.168.1.12</td>
+                                    <td><span class="status-badge online">Online</span></td>
+                                    <td>68%</td>
+                                    <td>85%</td>
+                                    <td>82%</td>
+                                    <td><button class="action-btn">Chi Tiết</button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Server 04</strong></td>
+                                    <td>192.168.1.13</td>
+                                    <td><span class="status-badge offline">Offline</span></td>
+                                    <td>N/A</td>
+                                    <td>N/A</td>
+                                    <td>N/A</td>
+                                    <td><button class="action-btn warning">Khởi Động</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Server Management Section -->
+                <section id="servers" class="section">
+                    <div class="section-header">
+                        <h2>Quản Lý Server</h2>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Thêm Server
+                        </button>
+                    </div>
+
+                    <div class="filter-bar">
+                        <input type="text" placeholder="Tìm kiếm server..." class="search-input">
+                        <select class="filter-select">
+                            <option>Tất Cả Trạng Thái</option>
+                            <option>Online</option>
+                            <option>Offline</option>
+                            <option>Bảo Trì</option>
+                        </select>
+                    </div>
+
+                    <div class="server-grid">
+                        <div class="server-card">
+                            <div class="server-header">
+                                <h4>Server Chính (Main)</h4>
+                                <span class="status-badge online">Online</span>
+                            </div>
+                            <div class="server-info">
+                                <p><strong>IP:</strong> 192.168.1.10</p>
+                                <p><strong>OS:</strong> Ubuntu 22.04 LTS</p>
+                                <p><strong>Uptime:</strong> 45 ngày 12 giờ</p>
+                            </div>
+                            <div class="progress-bar">
+                                <label>CPU: 45%</label>
+                                <div class="progress">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <label>RAM: 62%</label>
+                                <div class="progress">
+                                    <div class="progress-fill" style="width: 62%"></div>
+                                </div>
+                            </div>
+                            <div class="server-actions">
+                                <button class="btn-sm">Xem Chi Tiết</button>
+                                <button class="btn-sm">Khởi Động Lại</button>
+                                <button class="btn-sm danger">Tắt</button>
+                            </div>
+                        </div>
+
+                        <div class="server-card">
+                            <div class="server-header">
+                                <h4>Server Database</h4>
+                                <span class="status-badge online">Online</span>
+                            </div>
+                            <div class="server-info">
+                                <p><strong>IP:</strong> 192.168.1.11</p>
+                                <p><strong>OS:</strong> Ubuntu 22.04 LTS</p>
+                                <p><strong>Uptime:</strong> 30 ngày 5 giờ</p>
+                            </div>
+                            <div class="progress-bar">
+                                <label>CPU: 32%</label>
+                                <div class="progress">
+                                    <div class="progress-fill" style="width: 32%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <label>RAM: 51%</label>
+                                <div class="progress">
+                                    <div class="progress-fill" style="width: 51%"></div>
+                                </div>
+                            </div>
+                            <div class="server-actions">
+                                <button class="btn-sm">Xem Chi Tiết</button>
+                                <button class="btn-sm">Khởi Động Lại</button>
+                                <button class="btn-sm danger">Tắt</button>
+                            </div>
+                        </div>
+
+                        <div class="server-card">
+                            <div class="server-header">
+                                <h4>Server Backup</h4>
+                                <span class="status-badge offline">Offline</span>
+                            </div>
+                            <div class="server-info">
+                                <p><strong>IP:</strong> 192.168.1.13</p>
+                                <p><strong>OS:</strong> Windows Server 2019</p>
+                                <p><strong>Last Online:</strong> 2 giờ trước</p>
+                            </div>
+                            <div class="progress-bar">
+                                <label>CPU: N/A</label>
+                                <div class="progress">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <label>RAM: N/A</label>
+                                <div class="progress">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="server-actions">
+                                <button class="btn-sm">Xem Chi Tiết</button>
+                                <button class="btn-sm">Khởi Động</button>
+                                <button class="btn-sm danger">Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- User Management Section -->
+                <section id="users" class="section">
+                    <div class="section-header">
+                        <h2>Quản Lý Người Dùng</h2>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Thêm Người Dùng
+                        </button>
+                    </div>
+
+                    <div class="filter-bar">
+                        <input type="text" placeholder="Tìm kiếm người dùng..." class="search-input">
+                        <select class="filter-select">
+                            <option>Tất Cả Phòng Ban</option>
+                            <option>IT</option>
+                            <option>Sản Xuất</option>
+                            <option>Kỹ Thuật</option>
+                            <option>Quản Lý</option>
+                        </select>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Tên Người Dùng</th>
+                                    <th>Email</th>
+                                    <th>Phòng Ban</th>
+                                    <th>Chức Vụ</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nguyễn Văn A</strong></td>
+                                    <td>nguyena@company.com</td>
+                                    <td>IT</td>
+                                    <td>IT Manager</td>
+                                    <td><span class="status-badge online">Hoạt động</span></td>
+                                    <td>
+                                        <button class="action-btn">Sửa</button>
+                                        <button class="action-btn danger">Khóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Trần Thị B</strong></td>
+                                    <td>tranb@company.com</td>
+                                    <td>IT</td>
+                                    <td>System Admin</td>
+                                    <td><span class="status-badge online">Hoạt động</span></td>
+                                    <td>
+                                        <button class="action-btn">Sửa</button>
+                                        <button class="action-btn danger">Khóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Lê Văn C</strong></td>
+                                    <td>levc@company.com</td>
+                                    <td>Sản Xuất</td>
+                                    <td>Operator</td>
+                                    <td><span class="status-badge offline">Không Hoạt Động</span></td>
+                                    <td>
+                                        <button class="action-btn">Sửa</button>
+                                        <button class="action-btn">Kích Hoạt</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Systems Section -->
+                <section id="systems" class="section">
+                    <div class="section-header">
+                        <h2>Quản Lý Hệ Thống</h2>
+                    </div>
+
+                    <div class="systems-grid">
+                        <div class="system-panel">
+                            <h3><i class="fas fa-database"></i> Database</h3>
+                            <div class="system-status">
+                                <p><strong>Trạng Thái:</strong> <span class="status-good">Bình Thường</span></p>
+                                <p><strong>Kích Thước:</strong> 250 GB</p>
+                                <p><strong>Bảo Trì Cuối:</strong> 15/08/2026</p>
+                            </div>
+                            <button class="btn btn-primary">Tối Ưu Hóa</button>
+                        </div>
+
+                        <div class="system-panel">
+                            <h3><i class="fas fa-network-wired"></i> Network</h3>
+                            <div class="system-status">
+                                <p><strong>Trạng Thái:</strong> <span class="status-good">Bình Thường</span></p>
+                                <p><strong>Kết Nối:</strong> 156 thiết bị</p>
+                                <p><strong>Kiểm Tra Cuối:</strong> 12/08/2026</p>
+                            </div>
+                            <button class="btn btn-primary">Kiểm Tra</button>
+                        </div>
+
+                        <div class="system-panel">
+                            <h3><i class="fas fa-shield-alt"></i> Firewall</h3>
+                            <div class="system-status">
+                                <p><strong>Trạng Thái:</strong> <span class="status-good">Hoạt Động</span></p>
+                                <p><strong>Rules:</strong> 234 quy tắc</p>
+                                <p><strong>Cập Nhật Cuối:</strong> 10/08/2026</p>
+                            </div>
+                            <button class="btn btn-primary">Cấu Hình</button>
+                        </div>
+
+                        <div class="system-panel">
+                            <h3><i class="fas fa-shield-virus"></i> Antivirus</h3>
+                            <div class="system-status">
+                                <p><strong>Trạng Thái:</strong> <span class="status-good">Bảo Vệ</span></p>
+                                <p><strong>Phiên Bản:</strong> 2.8.4</p>
+                                <p><strong>Quét Cuối:</strong> Hôm nay 02:00 AM</p>
+                            </div>
+                            <button class="btn btn-primary">Quét Ngay</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Logs Section -->
+                <section id="logs" class="section">
+                    <div class="section-header">
+                        <h2>Nhật Ký Hoạt Động</h2>
+                        <button class="btn btn-secondary">Xuất Báo Cáo</button>
+                    </div>
+
+                    <div class="filter-bar">
+                        <select class="filter-select">
+                            <option>Tất Cả Loại</option>
+                            <option>Đăng Nhập</option>
+                            <option>Thay Đổi Cấu Hình</option>
+                            <option>Lỗi Hệ Thống</option>
+                            <option>Bảo Mật</option>
+                        </select>
+                        <input type="date" class="filter-select">
+                    </div>
+
+                    <div class="logs-container">
+                        <div class="log-entry">
+                            <div class="log-time">14:32 13/08/2026</div>
+                            <div class="log-type info">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="log-content">
+                                <p><strong>Người Dùng Đăng Nhập</strong></p>
+                                <p>Nguyễn Văn A đã đăng nhập từ 192.168.1.50</p>
+                            </div>
+                        </div>
+
+                        <div class="log-entry">
+                            <div class="log-time">13:15 13/08/2026</div>
+                            <div class="log-type warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="log-content">
+                                <p><strong>Cảnh Báo Bảo Mật</strong></p>
+                                <p>Phát Hiện 5 Nỗ Lực Đăng Nhập Thất Bại từ IP 203.162.100.5</p>
+                            </div>
+                        </div>
+
+                        <div class="log-entry">
+                            <div class="log-time">11:45 13/08/2026</div>
+                            <div class="log-type success">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="log-content">
+                                <p><strong>Sao Lưu Thành Công</strong></p>
+                                <p>Sao Lưu Hệ Thống Hoàn Thành - 2.5 GB dữ liệu</p>
+                            </div>
+                        </div>
+
+                        <div class="log-entry">
+                            <div class="log-time">10:20 13/08/2026</div>
+                            <div class="log-type error">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div class="log-content">
+                                <p><strong>Lỗi Hệ Thống</strong></p>
+                                <p>Server 04 Ngừng Phản Hồi - Thử Khởi Động Lại Tự Động</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Backup Section -->
+                <section id="backup" class="section">
+                    <div class="section-header">
+                        <h2>Sao Lưu & Phục Hồi</h2>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Tạo Sao Lưu
+                        </button>
+                    </div>
+
+                    <div class="backup-section">
+                        <h3>Sao Lưu Gần Đây</h3>
+                        <div class="table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tên Sao Lưu</th>
+                                        <th>Ngày Tạo</th>
+                                        <th>Kích Thước</th>
+                                        <th>Loại</th>
+                                        <th>Trạng Thái</th>
+                                        <th>Hành Động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Backup_2026_08_13</td>
+                                        <td>13/08/2026 02:00 AM</td>
+                                        <td>2.5 GB</td>
+                                        <td>Tự Động</td>
+                                        <td><span class="status-badge online">Thành Công</span></td>
+                                        <td>
+                                            <button class="action-btn">Phục Hồi</button>
+                                            <button class="action-btn">Tải</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Backup_2026_08_12</td>
+                                        <td>12/08/2026 02:00 AM</td>
+                                        <td>2.3 GB</td>
+                                        <td>Tự Động</td>
+                                        <td><span class="status-badge online">Thành Công</span></td>
+                                        <td>
+                                            <button class="action-btn">Phục Hồi</button>
+                                            <button class="action-btn">Tải</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security Section -->
+                <section id="security" class="section">
+                    <div class="section-header">
+                        <h2>Bảo Mật Hệ Thống</h2>
+                    </div>
+
+                    <div class="security-panels">
+                        <div class="security-card">
+                            <h3><i class="fas fa-key"></i> Mật Khẩu</h3>
+                            <div class="security-status">
+                                <p>Chính Sách Mật Khẩu: <strong>Bắt Buộc 12 ký tự</strong></p>
+                                <p>Yêu Cầu Thay Đổi: <strong>90 ngày</strong></p>
+                                <p>Số Nỗ Lực Tối Đa: <strong>5</strong></p>
+                            </div>
+                            <button class="btn btn-primary">Chuỗi Lại</button>
+                        </div>
+
+                        <div class="security-card">
+                            <h3><i class="fas fa-fingerprint"></i> 2FA - Xác Thực Hai Yếu Tố</h3>
+                            <div class="security-status">
+                                <p>Trạng Thái: <strong>Kích Hoạt</strong></p>
+                                <p>Người Dùng Bảo Vệ: <strong>45/60</strong></p>
+                                <p>Tỷ Lệ Bảo Vệ: <strong>75%</strong></p>
+                            </div>
+                            <button class="btn btn-primary">Yêu Cầu Kích Hoạt</button>
+                        </div>
+
+                        <div class="security-card">
+                            <h3><i class="fas fa-shield-alt"></i> SSL/TLS</h3>
+                            <div class="security-status">
+                                <p>Chứng Chỉ: <strong>Hợp Lệ</strong></p>
+                                <p>Hết Hạn: <strong>2027-08-13</strong></p>
+                                <p>Phiên Bản: <strong>TLS 1.3</strong></p>
+                            </div>
+                            <button class="btn btn-primary">Gia Hạn</button>
+                        </div>
+
+                        <div class="security-card">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Phát Hiện Mối Đe Dọa</h3>
+                            <div class="security-status">
+                                <p>Mối Đe Dọa Gần Đây: <strong>2</strong></p>
+                                <p>Đã Chặn: <strong>156</strong></p>
+                                <p>Trạng Thái: <strong>Bảo Vệ</strong></p>
+                            </div>
+                            <button class="btn btn-primary">Xem Chi Tiết</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reports Section -->
+                <section id="reports" class="section">
+                    <div class="section-header">
+                        <h2>Báo Cáo Hệ Thống</h2>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-download"></i> Tải Xuống
+                        </button>
+                    </div>
+
+                    <div class="reports-container">
+                        <div class="report-card">
+                            <h3>Báo Cáo Hoạt Động Hệ Thống</h3>
+                            <p>Thống Kê Chi Tiết Về Hiệu Suất Máy Chủ, Tải Hệ Thống và Uptime</p>
+                            <p class="report-date">Tháng 08/2026</p>
+                            <button class="btn btn-secondary">Xem</button>
+                        </div>
+
+                        <div class="report-card">
+                            <h3>Báo Cáo Bảo Mật</h3>
+                            <p>Các Sự Cố Bảo Mật, Phát Hiện Mối Đe Dọa và Các Hành Động Phòng Chống</p>
+                            <p class="report-date">Tháng 08/2026</p>
+                            <button class="btn btn-secondary">Xem</button>
+                        </div>
+
+                        <div class="report-card">
+                            <h3>Báo Cáo Người Dùng</h3>
+                            <p>Thống Kê Đăng Nhập, Hoạt Động và Quản Lý Quyền Truy Cập</p>
+                            <p class="report-date">Tháng 08/2026</p>
+                            <button class="btn btn-secondary">Xem</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; 2026 QAsystem - Hệ Thống Quản Trị IT. Phát Triển Bởi IT Team.</p>
+                <p>Phiên Bản: 1.0.0 | Trạng Thái: Sản Xuất</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
